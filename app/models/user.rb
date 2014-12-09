@@ -1,6 +1,5 @@
 class User < ActiveRecord::Base
-	has_many :panel_messages
-
+	has_many :issues
 	#plates regexpresions
 		#before 1971: letter + 7 numbers
 		#from 1971 to 2000: 1 or 2 letters + 4 numbers + 2 letters
