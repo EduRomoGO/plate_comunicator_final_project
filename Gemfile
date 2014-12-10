@@ -43,3 +43,5 @@ gem 'rake', '>= 10.4'
 gem 'rspec-rails', group: [:test]
 
 gem 'capybara'
+
+gem'pry-rails'

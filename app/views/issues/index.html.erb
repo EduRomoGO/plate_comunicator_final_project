@@ -1,0 +1,32 @@
+
+<% if @issues.count != 0 %>
+	<% @issues.each do |issue| %>
+		<article class="media status attribution">
+		  <div class="bd">
+				<p>Matrícula target del issue: <%= issue.target_user_id %></p>
+				<p>Fecha de creación: <%= issue.created_at %></p>
+				<p>Texto del issue: <%= issue.text %></p>
+			</div>
+		</article>
+	<% end %>
+<% else %>
+	<p class="empty_issues_message"> No has abierto ningún issue </p>
+<% end %>
+	
+	<br>
+	<br>	
+	<br>
+
+<% if @issues_targeted.count != 0 %>
+	<% @issues_targeted.each do |issue| %>
+		<article class="media status attribution">
+		  <div class="bd">
+				<p>Matrícula que me ha targeteado en el issue: <%= issue.user_id %></p>
+				<p>Fecha de creación: <%= issue.created_at %></p>
+				<p>Texto del issue: <%= issue.text %></p>
+			</div>
+		</article>
+	<% end %>
+<% else %>
+	<p class="empty_issues_targeted_message"> No te han abierto ningún issue </p>
+<% end %>
