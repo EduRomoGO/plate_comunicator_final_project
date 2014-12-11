@@ -17,4 +17,32 @@ class IssuesController < ApplicationController
 
 	end
 
+	def create
+		@issue = Issue.new(issue_params)
+		
+		if @issue.save
+			respond_to do |format|
+				format.js do
+					render(
+						partial: 'create_issue',
+						locals: { resource: @issue })
+				end
+			end
+		end
+
+	end
+
+
+  def issue_params
+    params.require(:issue).permit(:user_id, :target_user_id, :text)
+  end
+
 end
+
+
+
+
+
+
+  
+

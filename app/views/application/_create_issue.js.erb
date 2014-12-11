@@ -1,0 +1,10 @@
+$('.my_opened_issues').prepend(' \
+<article class="media status attribution"> \
+  <div class="bd"> \
+		<p>Matrícula que me ha targeteado en el issue: <%= resource.user_id %></p> \
+		<p>Fecha de creación: <%= resource.created_at %></p> \
+		<p>Texto del issue: <%= resource.text %></p> \
+	</div> \
+</article> \
+');
+

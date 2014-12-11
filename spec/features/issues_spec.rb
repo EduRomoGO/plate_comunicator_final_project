@@ -103,6 +103,13 @@ describe "User issues page", :type => :feature do
 	    expect(find('input[name="commit"]').value).to eq("Save")
 	  end
 
+	  it "that has an input hidden which holds the user id value" do
+
+	    visit "/users/#{u.id}/issues"
+	    expect(all('input#issue_user_id').count).to be(1)
+	    expect(find('input#issue_user_id').value).to eq("#{u.id}")
+	  end
+
 	end
 
 end

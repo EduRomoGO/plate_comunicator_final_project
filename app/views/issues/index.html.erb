@@ -1,14 +1,16 @@
 
 <% if @issues.count != 0 %>
-	<% @issues.each do |issue| %>
-		<article class="media status attribution">
-		  <div class="bd">
-				<p>Matrícula target del issue: <%= issue.target_user_id %></p>
-				<p>Fecha de creación: <%= issue.created_at %></p>
-				<p>Texto del issue: <%= issue.text %></p>
-			</div>
-		</article>
-	<% end %>
+	<section class="my_opened_issues">
+		<% @issues.each do |issue| %>
+			<article class="media status attribution">
+			  <div class="bd">
+					<p>Matrícula target del issue: <%= issue.target_user_id %></p>
+					<p>Fecha de creación: <%= issue.created_at %></p>
+					<p>Texto del issue: <%= issue.text %></p>
+				</div>
+			</article>
+		<% end %>
+	</section>
 <% else %>
 	<p class="empty_issues_message"> No has abierto ningún issue </p>
 <% end %>
@@ -33,7 +35,7 @@
 
 
 
-<%= form_for [@user, @issue] do |f| %>
+<%= form_for [@user, @issue], remote: true do |f| %>
 
 	<%= f.label :target_user_id, 'Matrícula/s: ' %>
 	<%= f.text_field :target_user_id, placeholder: " Matrículas implicadas" %>
@@ -41,6 +43,9 @@
 	<%= f.label :text, 'Descripción: ' %>
 	<%= f.text_field :text, placeholder: " Descripción de la situación" %>
 	<br>
+	<%= f.hidden_field :user_id, value: @user.id %>
+	<br>
+
 
 	<%= f.submit 'Save' %>
 
