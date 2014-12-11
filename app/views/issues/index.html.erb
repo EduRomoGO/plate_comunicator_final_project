@@ -30,3 +30,18 @@
 <% else %>
 	<p class="empty_issues_targeted_message"> No te han abierto ningún issue </p>
 <% end %>
+
+
+
+<%= form_for [@user, @issue] do |f| %>
+
+	<%= f.label :target_user_id, 'Matrícula/s: ' %>
+	<%= f.text_field :target_user_id, placeholder: " Matrículas implicadas" %>
+	<br>
+	<%= f.label :text, 'Descripción: ' %>
+	<%= f.text_field :text, placeholder: " Descripción de la situación" %>
+	<br>
+
+	<%= f.submit 'Save' %>
+
+<% end %>
