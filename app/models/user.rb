@@ -7,6 +7,10 @@ class User < ActiveRecord::Base
 	#identification_number
 		#nie: letter (x,y,z) + 7 numbers + any letter
 		#nif: 8 numbers + any letter
+
+  devise :database_authenticatable, :registerable,
+				 :recoverable, :rememberable, :trackable, :validatable
+
 	
 
 	NATIONAL_DOCUMENT = "nif"
