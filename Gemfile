@@ -44,6 +44,6 @@ gem 'rspec-rails', group: [:test]
 
 gem 'capybara'
 
-gem'pry-rails'
+gem 'pry-rails'
 
 gem 'devise'

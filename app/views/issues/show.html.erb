@@ -1,0 +1,29 @@
+
+
+<article class="issue">
+  <div class="bd">
+		<p>Matrícula target del issue: <%= @issue.target_user_id %></p>
+		<p>Fecha de creación: <%= @issue.created_at %></p>
+		<p>Texto del issue: <%= @issue.text %></p>
+	</div>
+</article>
+
+<p class="comments">Comentarios sobre este issue:</p>
+		<% @comments.each do |comment| %>
+			<article>
+				<p>Texto del comment: <%= comment.text %></p>
+			</article>
+		<% end %>
+
+
+<%= form_for [@comment], remote: true do |f| %>
+<p>Crea un comentario para el issue actual: </p>
+	<%= f.label :text, 'Descripción: ' %>
+	<%= f.text_field :text, placeholder: " Descripción de la situación" %>
+	<br>
+	<%= f.hidden_field :issue_id, value: @issue.id %>
+	<br>
+
+	<%= f.submit 'Save' %>
+
+<% end %>

@@ -32,6 +32,12 @@ class IssuesController < ApplicationController
 
 	end
 
+	def show
+		@issue = Issue.find (params[:id])
+		@comments = @issue.comments
+		@comment = Comment.new
+	end
+
 
   def issue_params
     params.require(:issue).permit(:user_id, :target_user_id, :text)

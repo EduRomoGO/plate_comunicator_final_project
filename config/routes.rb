@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-	devise_for :users
+	devise_for :users, controllers: { sessions: "users/sessions" }
   
   get '/' => 'site#home'
 
@@ -11,6 +11,6 @@ Rails.application.routes.draw do
 
 
 
-  resources :comments, only: [:create]
+  resources :comments, only: [:create, :new]
 
 end
