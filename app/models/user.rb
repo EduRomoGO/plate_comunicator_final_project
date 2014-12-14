@@ -2,6 +2,10 @@ class User < ActiveRecord::Base
 	has_many :issues
 	has_many :issues_targeted, class_name: "Issue", foreign_key: "target_user_id"
 
+	has_many :opened_issues, class_name: "Issue", foreign_key: "opener_id"
+	has_many :received_issues, class_name: "Issue", foreign_key: "receiver_id"
+
+
 	#plates regexpresions
 		#before 1971: letter + 7 numbers
 		#from 1971 to 2000: 1 or 2 letters + 4 numbers + 2 letters
